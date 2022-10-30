@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://SettingsArea.gd" type="Script" id=1]
+
+[node name="SettingsArea" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="SettingsLabel" type="Label" parent="."]
+margin_left = 481.0
+margin_top = 481.0
+margin_right = 532.0
+margin_bottom = 512.0
+text = "Settings
+"
+
+[node name="MusicVolume" type="Label" parent="."]
+margin_left = 388.0
+margin_top = 550.0
+margin_right = 483.0
+margin_bottom = 564.0
+text = "Music Volume:"
+
+[node name="HSlider" type="HSlider" parent="MusicVolume"]
+margin_left = 121.0
+margin_top = -4.0
+margin_right = 271.0
+margin_bottom = 16.0
+value = 100.0
+
+[node name="DeathSoundLabel" type="Label" parent="."]
+margin_left = 400.0
+margin_top = 519.0
+margin_right = 485.0
+margin_bottom = 533.0
+text = "Death Sound:"
+
+[node name="DeathSoundCheck" type="CheckBox" parent="DeathSoundLabel"]
+margin_left = 114.0
+margin_top = -9.0
+margin_right = 138.0
+margin_bottom = 15.0
+
+[node name="PlayerSpeedLabel" type="Label" parent="."]
+margin_left = 392.0
+margin_top = 591.0
+margin_right = 478.0
+margin_bottom = 605.0
+text = "Player Speed:"
+
+[node name="HSlider" type="HSlider" parent="PlayerSpeedLabel"]
+margin_left = 121.0
+margin_top = -4.0
+margin_right = 271.0
+margin_bottom = 16.0
+value = 50.0
+
+[node name="MobSpeedLabel" type="Label" parent="."]
+margin_left = 400.0
+margin_top = 635.0
+margin_right = 475.0
+margin_bottom = 649.0
+text = "Mob Speed:"
+
+[node name="HSlider" type="HSlider" parent="MobSpeedLabel"]
+anchor_left = -5.126
+anchor_top = -45.086
+anchor_right = -5.126
+anchor_bottom = -45.086
+margin_left = 497.45
+margin_top = 626.204
+margin_right = 647.45
+margin_bottom = 646.204
+hint_tooltip = "Right to increase speed
+Left to decrease speed	"
+value = 50.0
+
+[connection signal="value_changed" from="PlayerSpeedLabel/HSlider" to="." method="_on_HSlider_value_changed"]

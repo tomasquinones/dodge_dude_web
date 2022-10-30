@@ -73,5 +73,19 @@ margin_bottom = 80.0
 custom_fonts/font = SubResource( 1 )
 text = "0"
 
+[node name="MobCounterLabel" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 778.0
+margin_right = 81.0
+margin_bottom = 792.0
+text = "Mob Count:"
+
+[node name="MobCounterValue" type="Label" parent="."]
+margin_left = 95.0
+margin_top = 778.0
+margin_right = 135.0
+margin_bottom = 792.0
+text = "0"
+
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
