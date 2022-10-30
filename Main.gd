@@ -7,6 +7,7 @@ export(PackedScene) var mob_scene
 # var b = "text"
 var score
 var highscore = 0
+var mob_count = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,6 +38,7 @@ func new_game():
 	$HUD.show_message("Get Ready")
 	get_tree().call_group("mobs", "queue_free")
 	$Music.play()
+	mob_count = 0
 
 func _on_StartTimer_timeout():
 	$MobTimer.start()
@@ -71,5 +73,6 @@ func _on_MobTimer_timeout():
 	
 	# Spawn the  m ob by adding it to the Main scene.
 	add_child(mob)
-	
+	mob_count += 1
+	$HUD.update_mob_count(mob_count)
 	

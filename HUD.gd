@@ -5,7 +5,7 @@ signal start_game
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var counter_shown = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,8 +13,17 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if Input.is_action_just_released("ui_mob_counter"):
+	# if Input.is_action_pressed("ui_mob_counter"):
+			if counter_shown:
+				$MobCounterValue.hide()
+				$MobCounterLabel.hide()
+				counter_shown = false
+			else:
+				$MobCounterValue.show()
+				$MobCounterLabel.show()
+				counter_shown = true
 
 func show_message(text):
 	$Message.text = text
@@ -38,6 +47,9 @@ func update_score(score):
 
 func update_highscore(highscore):
 	$HighScoreValue.text = str(highscore)
+
+func update_mob_count(count):
+	$MobCounterValue.text = str(count)
 
 
 
